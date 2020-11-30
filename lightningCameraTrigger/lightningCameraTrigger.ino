@@ -386,7 +386,7 @@ void inVsOutDoorButton() {
 
   // the above should be enough to reconfigure the sensors...
   if (isOutdoor) {
-    lightningDetection.setIndoors();
+    lightningDetection.setOutdoors();
   } else {
     lightningDetection.setIndoors();
   }
