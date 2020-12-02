@@ -8,9 +8,9 @@ _Language versions:_\
 # Lightning camera trigger
 
 This project is to automagically trigger the camera as soon as lightning occurs, as quick as possible.
-Internet says the average duration of lightnig visibility in the sky lasts for ~100-200ms, so it is enough to sense the lighting and trigger the camera.
-There are two well known ways to sense the lightning, one is to trigger the camera when light suddenly changes, the other one is to sense for spacific radio waves.
-This project uses the latter one by emplying the lightning sensor based on AS3935 chip and MA5532-AE antenna - here a module SEN0290 by DFRobot Gravity
+Internet says the average duration of lightning  visibility in the sky lasts for ~100-200ms, so it is enough to sense the lighting and trigger the camera.
+There are two well known ways to sense the lightning, one is to trigger the camera when light suddenly changes, the other one is to sense for specific radio waves.
+This project uses the latter one by employing the lightning sensor based on AS3935 chip and MA5532-AE antenna - here a module SEN0290 by DFRobot Gravity
 has been used, but there are other brands that produce similar modules (can be found on Ali, eBay etc - haven't tested them out, though).
 Since I own Canon dSLR all the camera wiring has been done for this particular manufacturer.
 
@@ -24,7 +24,9 @@ Awaiting spring - keep fingers crossed!
 
 The assembled project has direct power input via Arduino mini USB. One can use Power Bank to power it up, the simpler power bank the better - it must 
 not have low-current shut off), the power consumption is relatively low and on small power bank it should run more than 12hrs (the power usage could be
-lower removing LEDs, turning off OLED, bypassing/removing voltage stabilizer from Nano etc). To display status OLED screen is being used.
+lower be removing LEDs, turning off OLED, bypassing/removing voltage regulator on Nano and connecting 3.3V directly to Vin etc).
+To display status OLED screen is being used - to avoid burn-in, a simple counter measures have been employed by moving randomly the displayed text by 0-2 pixels around.
+
 Program provides support for two tact-switch buttons:
 - Test button - to test the device. It simulates lighting interruption and engages the camera trigger
 (good for testing the whole thing when assembling, and on the field to check whether everything is connected as it should be). 
@@ -43,15 +45,15 @@ of the sensor between indoor and outdoor use (a proper information on screen is 
 ## Hardware
 
 List of parts you will need:
-- Arduino Nano or similiar
+- Arduino Nano or similar
 - Lightning Sensor with AS3935 (for example SEN0290 by DFRobot Gravity)
-- OLED display SSD1306 (128x32 or similar
+- OLED display SSD1306 (128x32 or similar, resolution can be reconfigured in the code)
 - Optocoupler 4N24 or 4N26, or similar
 - a resistor (~460ohm)
 - 2x tact switch buttons
 - 3.5mm stereo socket (3 pole)
 - 3.5mm->2.5mm stereo (3 pole) cable (for Canon - for others manufactures refer to this [site](http://www.doc-diy.net/photo/remote_pinout/))
-- proto board, connectors etc
+- breadboard or proto board, connectors/wires etc
 
 ## Software
 

@@ -9,7 +9,7 @@
  * License: Apache License, version 2.0
  * 
  * Hardware:
- * - Arduino Nano or similiar
+ * - Arduino Nano or similar
  * - Lightning Sensor SEN0290 by DFRobot Gravity (that employs AS3935 & MA5532-AE antenna).
  * - OLED display SSD1306 (128x32 or larger if OLED_SCREEN_WIDTH/OLED_SCREEN_HEIGHT adjusted)
  * - Optocoupler 4N24 or 4N26, or similar
