@@ -12,7 +12,7 @@ Internet says the average duration of lightning  visibility in the sky lasts for
 There are two well known ways to sense the lightning, one is to trigger the camera when light suddenly changes, the other one is to sense for specific radio waves.
 This project uses the latter one by employing the lightning sensor based on AS3935 chip and MA5532-AE antenna - here a module SEN0290 by DFRobot Gravity
 has been used, but there are other brands that produce similar modules (can be found on Ali, eBay etc - haven't tested them out, though).
-Since I own Canon dSLR all the camera wiring has been done for this particular manufacturer.
+Since I own Canon DSLR all the camera wiring has been done for this particular manufacturer.
 
 DISCLAIMER: The module and the program haven't been tested in the field yet, now it is winter time and no lightnings. It's been tested with piezo lighters
 and other noisy devices, though. The module & software are able to properly notify about noisy environment etc, the question is how good it will be
@@ -22,9 +22,12 @@ Awaiting spring - keep fingers crossed!
 
 ## Functionality
 
-The assembled project has direct power input via Arduino mini USB. One can use Power Bank to power it up, the simpler power bank the better - it must 
+The main functionality is to trigger the shutter when lightning occurs - this is being done by shortening wires of Camera's remote trigger cable.
+To shorten the wires, the optocoupler is being used as it isolates the lightning detector from the camera itself (very safe solution).
+
+The assembled project uses direct power input via Arduino mini USB. One can use Power Bank to power it up, the simpler the power bank the better - it must 
 not have low-current shut off), the power consumption is relatively low and on small power bank it should run more than 12hrs (the power usage could be
-lower be removing LEDs, turning off OLED, bypassing/removing voltage regulator on Nano and connecting 3.3V directly to Vin etc).
+lower by removing LEDs, turning off OLED, bypassing/removing voltage regulator on Nano and connecting 3.3V directly to Vin etc).
 To display status OLED screen is being used - to avoid burn-in, a simple counter measures have been employed by moving randomly the displayed text by 0-2 pixels around.
 
 Program provides support for two tact-switch buttons:
@@ -32,14 +35,16 @@ Program provides support for two tact-switch buttons:
 (good for testing the whole thing when assembling, and on the field to check whether everything is connected as it should be). 
 - In/Out button (that must be pressed first and while it is being pressed, the Test button pressed) - it changes the internal configuration
 of the sensor between indoor and outdoor use (a proper information on screen is displayed which mode is being currently set).
-- The screen displays the following information:
-  - Sensing in progress
-  - Disruptors in the vicinity 
-  - Noisy environment
-  - Lightning occurance along with distance and energy (0-100%)
-  - Number of lightnings sensed in the session
-  - Current mode of operation (indoors/outdoors)
-  - Whether Lightning Sensor has been properly initialized, states the error otherwise
+
+
+The screen displays the following information:
+- Sensing in progress
+- Disruptors in the vicinity 
+- Noisy environment
+- Lightning occurance along with distance and energy (0-100%)
+- Number of lightnings sensed in the session
+- Current mode of operation (indoors/outdoors)
+- Whether Lightning Sensor has been properly initialized, states the error otherwise
 
 
 ## Hardware
@@ -47,7 +52,7 @@ of the sensor between indoor and outdoor use (a proper information on screen is 
 List of parts you will need:
 - Arduino Nano or similar
 - Lightning Sensor with AS3935 (for example SEN0290 by DFRobot Gravity)
-- OLED display SSD1306 (128x32 or similar, resolution can be reconfigured in the code)
+- OLED display SSD1306 (128x32 or similar, resolution can be reconfigured in the code if it sill uses SSD1306 library)
 - Optocoupler 4N24 or 4N26, or similar
 - a resistor (~460ohm)
 - 2x tact switch buttons
@@ -60,7 +65,7 @@ List of parts you will need:
 List of software/libraries you will need:
 - [Arduino](https://www.arduino.cc/en/software)
 - [Lightning Sensor library](https://github.com/DFRobot/DFRobot_AS3935)
-- SSD1306 library (install it thru Arduino as described [here[(https://randomnerdtutorials.com/guide-for-oled-display-with-arduino/))
+- SSD1306 library (install it thru Arduino as described [here](https://randomnerdtutorials.com/guide-for-oled-display-with-arduino/))
 
 ## Schematics (wiring)
 
@@ -78,11 +83,17 @@ The schematic of wiring is quite simple, take a look here:
 
 More photos of the assembled Lightning Camera Trigger enclosed in a paper-clip box are [here](https://pskowronek.github.io/Lightning-camera-trigger/www/assembled/index.html "Photos of assembled Lightning camera trigger").
 
-## TODO
+## TODO & Gotchas
 
 - test it out during stormy seasons
 - the program may require tweaks
   - proper calibration procedure (now it runs on default settings)
+  
+- the lightning sensor module
+  - must not be too close to Arduino or OLED
+  - far away from connectors/cabales
+  - must not have metalic surface underneath
+  - requires stable and nicely filtered power supply, otherwise false alarms may occur, especially if arduino/oled is close by
 
 ## License
 
