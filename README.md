@@ -14,8 +14,10 @@ This project uses the latter one by emplying the lightning sensor based on AS393
 has been used, but there are other brands that produce similar modules (can be found on Ali, eBay etc - haven't tested them out, though).
 Since I own Canon dSLR all the camera wiring has been done for this particular manufacturer.
 
-DISCLAIMER: The module and the program haven't been tested in the field yet, now is winter time and now lightning. It's been tested with piezo lighters
-and other noisy devices - the module + software is able to properly notify about noisy environment, the question is how good it will be catching lightnings!
+DISCLAIMER: The module and the program haven't been tested in the field yet, now it is winter time and no lightnings. It's been tested with piezo lighters
+and other noisy devices, though. The module & software are able to properly notify about noisy environment etc, the question is how good it will be
+catching lightnings!
+
 Awaiting spring - keep fingers crossed!
 
 ## Functionality
@@ -27,7 +29,16 @@ Program provides support for two tact-switch buttons:
 - Test button - to test the device. It simulates lighting interruption and engages the camera trigger
 (good for testing the whole thing when assembling, and on the field to check whether everything is connected as it should be). 
 - In/Out button (that must be pressed first and while it is being pressed, the Test button pressed) - it changes the internal configuration
-of the sensor between indoor and outdoor use (a proper information on screen is displayed which one is being currently set).
+of the sensor between indoor and outdoor use (a proper information on screen is displayed which mode is being currently set).
+- The screen displays the following information:
+  - Sensing in progress
+  - Disruptors in the vicinity 
+  - Noisy environment
+  - Lightning occurance along with distance and energy (0-100%)
+  - Number of lightnings sensed in the session
+  - Current mode of operation (indoors/outdoors)
+  - Whether Lightning Sensor has been properly initialized, states the error otherwise
+
 
 ## Hardware
 
@@ -61,7 +72,7 @@ The schematic of wiring is quite simple, take a look here:
 
 
 ### Photos
-[![Assembled](https://github.com/pskowronek/Lightning-camera-trigger/raw/main/www/assembled/01.JPG)](https://pskowronek.github.io/Lightning-camera-trigger/www/assembled/index.html "Photos of assembled Lightning camera trigger")
+[![Assembled](https://github.com/pskowronek/Lightning-camera-trigger/raw/main/www/assembled/01.jpg)](https://pskowronek.github.io/Lightning-camera-trigger/www/assembled/index.html "Photos of assembled Lightning camera trigger")
 
 More photos of the assembled Lightning Camera Trigger enclosed in a paper-clip box are [here]((https://pskowronek.github.io/Lightning-camera-trigger/www/assembled/index.html "Photos of assembled Lightning camera trigger").
 

@@ -2,8 +2,8 @@
  * Trigger the shutter on camera when lightning is detected by using lightning sensor 
  * and OLED to display the current status.
  * 
- * Project hosted here:
- * https://github.com/pskowronek/lightning-camera-trigger
+ * Project is hosted here:
+ * https://github.com/pskowronek/Lightning-camera-trigger
  * 
  * Author: Piotr Skowronek, piotr@skowro.net
  * License: Apache License, version 2.0
