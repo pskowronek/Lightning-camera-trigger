@@ -1,7 +1,6 @@
 /**
- * Trigger the shutter on camera when lightning is detected. 
- * Lightning detection is based on DFRobot Gravity – Lightning Sensor SEN0290 (that emplys AS3935 & MA5532-AE antenna).
- * To display the current status an OLED display is being used.
+ * Trigger the shutter on camera when lightning is detected by using lightning sensor 
+ * and OLED to display the current status.
  * 
  * Project hosted here:
  * https://github.com/pskowronek/lightning-camera-trigger
@@ -11,7 +10,7 @@
  * 
  * Hardware:
  * - Arduino Nano or similiar
- * - Lightning Sensor SEN0290 by DFRobot Gravity
+ * - Lightning Sensor SEN0290 by DFRobot Gravity (that employs AS3935 & MA5532-AE antenna).
  * - OLED display SSD1306 (128x32 or larger if OLED_SCREEN_WIDTH/OLED_SCREEN_HEIGHT adjusted)
  * - Optocoupler 4N24 or 4N26, or similar
  * - a resistor (~460ohm)
@@ -380,7 +379,7 @@ void unknownDetected() {
  * The action for changing indoor vs outdoor mode of lightning sensor.
  */
 void inVsOutDoorButton() {
-  boolean isOutdoor = not(isOutDoor());
+  boolean isOutdoor = not(isOutDoor()); // read and flip the setting
   EEPROM.update(INOUT_DOOR_EEPROM_ADDR, isOutdoor);
   clearScreenToDefault(false);
 
