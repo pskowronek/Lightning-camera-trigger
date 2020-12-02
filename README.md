@@ -76,7 +76,7 @@ The schematic of wiring is quite simple, take a look here:
 ### Photos
 [![Assembled](https://github.com/pskowronek/Lightning-camera-trigger/raw/main/www/assembled/01.jpg)](https://pskowronek.github.io/Lightning-camera-trigger/www/assembled/index.html "Photos of assembled Lightning camera trigger")
 
-More photos of the assembled Lightning Camera Trigger enclosed in a paper-clip box are [here]((https://pskowronek.github.io/Lightning-camera-trigger/www/assembled/index.html "Photos of assembled Lightning camera trigger").
+More photos of the assembled Lightning Camera Trigger enclosed in a paper-clip box are [here](https://pskowronek.github.io/Lightning-camera-trigger/www/assembled/index.html "Photos of assembled Lightning camera trigger").
 
 ## TODO
 
