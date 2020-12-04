@@ -14,7 +14,7 @@ This project uses the latter one by employing the lightning sensor based on AS39
 has been used, but there are other brands that produce similar modules (can be found on Ali, eBay etc - haven't tested them out, though).
 Since I own Canon DSLR all the camera wiring has been done for this particular manufacturer.
 
-DISCLAIMER: The module and the program haven't been tested in the field yet, now it is winter time and no lightnings. It's been tested with piezo lighters
+**DISCLAIMER:** The module and the program haven't been tested in the field yet, now it is winter time and no lightnings. It's been tested with piezo lighters
 and other noisy devices, though. The module & software are able to properly notify about noisy environment etc, the question is how good it will be
 catching lightnings!
 
@@ -41,7 +41,7 @@ The screen displays the following information:
 - Sensing in progress
 - Disruptors in the vicinity 
 - Noisy environment
-- Lightning occurance along with distance and energy (0-100%)
+- Lightning occurrence along with distance (0-40 in km) and energy (0-100%)
 - Number of lightnings sensed in the session
 - Current mode of operation (indoors/outdoors)
 - Whether Lightning Sensor has been properly initialized, states the error otherwise
@@ -91,13 +91,13 @@ More photos of the assembled Lightning Camera Trigger enclosed in a paper-clip b
   
 - the lightning sensor module
   - must not be too close to Arduino or OLED
-  - far away from connectors/cabales
-  - must not have metalic surface underneath
+  - far away from connectors/cables
+  - must not have metallic surface underneath
   - requires stable and nicely filtered power supply, otherwise false alarms may occur, especially if arduino/oled is close by
 
 ## License
 
-The code is licensed under Apache Licence 2.0, pictures under Creative Commons BY-NC.
+The code is licensed under Apache License 2.0, pictures under Creative Commons BY-NC.
 
 ## Authors
 
