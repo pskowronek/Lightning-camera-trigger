@@ -10,7 +10,8 @@ _Language versions:_\
 This project is to automagically trigger the camera as soon as lightning occurs, as quick as possible.
 Internet says the average duration of lightning  visibility in the sky lasts for ~100-200ms, so it is enough to sense the lighting and trigger the camera.
 There are two well known ways to sense the lightning, one is to trigger the camera when light suddenly changes, the other one is to sense for specific radio waves.
-This project uses the latter one by employing the lightning sensor based on AS3935 chip and MA5532-AE antenna - here a module SEN0290 by DFRobot Gravity
+This project uses the latter one by employing the lightning sensor based on [AS3935](https://datasheetspdf.com/datasheet/AS3935.html) chip
+and [MA5532-AE](https://datasheetspdf.com/pdf/817096/Coilcraft/MA5532-AE/1) antenna - here a module [SEN0290](https://wiki.dfrobot.com/Gravity:%20Lightning%20Sensor%20SKU:%20SEN0290) by DFRobot Gravity
 has been used, but there are other brands that produce similar modules (can be found on Ali, eBay etc - haven't tested them out, though).
 Since I own Canon DSLR all the camera wiring has been done for this particular manufacturer.
 
@@ -51,8 +52,8 @@ The screen displays the following information:
 
 List of parts you will need:
 - Arduino Nano or similar
-- Lightning Sensor with AS3935 (for example SEN0290 by DFRobot Gravity)
-- OLED display SSD1306 (128x32 or similar, resolution can be reconfigured in the code if it sill uses SSD1306 library)
+- Lightning Sensor with AS3935 (for example (SEN0290)[https://wiki.dfrobot.com/Gravity:%20Lightning%20Sensor%20SKU:%20SEN0290] by DFRobot Gravity)
+- OLED display SSD1306 based (128x32 or similar, resolution can be reconfigured in the code if it sill uses SSD1306 library)
 - Optocoupler 4N24 or 4N26, or similar
 - a resistor (~460ohm)
 - 2x tact switch buttons
@@ -63,9 +64,9 @@ List of parts you will need:
 ## Software
 
 List of software/libraries you will need:
-- [Arduino](https://www.arduino.cc/en/software)
+- [Arduino IDE](https://www.arduino.cc/en/software)
 - [Lightning Sensor library](https://github.com/DFRobot/DFRobot_AS3935)
-- SSD1306 library (install it thru Arduino as described [here](https://randomnerdtutorials.com/guide-for-oled-display-with-arduino/))
+- SSD1306 library (install it thru Arduino IDE as described [here](https://randomnerdtutorials.com/guide-for-oled-display-with-arduino/))
 
 ## Schematics (wiring)
 
