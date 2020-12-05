@@ -42,7 +42,7 @@ The screen displays the following information:
 - Sensing in progress
 - Disruptors in the vicinity 
 - Noisy environment
-- Lightning occurrence along with distance (0-40 in km) and energy (0-100%)
+- Lightning occurrence along with distance (0-40 in km) and energy (0-100%) approximation
 - Number of lightnings sensed in the session
 - Current mode of operation (indoors/outdoors)
 - Whether Lightning Sensor has been properly initialized, states the error otherwise
@@ -52,7 +52,7 @@ The screen displays the following information:
 
 List of parts you will need:
 - Arduino Nano or similar
-- Lightning Sensor with AS3935 (for example (SEN0290)[https://wiki.dfrobot.com/Gravity:%20Lightning%20Sensor%20SKU:%20SEN0290] by DFRobot Gravity)
+- Lightning Sensor with AS3935 (for example [SEN0290](https://wiki.dfrobot.com/Gravity:%20Lightning%20Sensor%20SKU:%20SEN0290) by DFRobot Gravity)
 - OLED display SSD1306 based (128x32 or similar, resolution can be reconfigured in the code if it sill uses SSD1306 library)
 - Optocoupler 4N24 or 4N26, or similar
 - a resistor (~460ohm)
