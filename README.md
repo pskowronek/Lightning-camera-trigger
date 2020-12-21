@@ -23,13 +23,13 @@ Awaiting spring - keep fingers crossed!
 
 ## Functionality
 
-The main functionality is to trigger the shutter when lightning occurs - this is being done by shortening wires of Camera's remote trigger cable.
+The main functionality is to trigger the shutter when lightning occurs - this is being done by shortening wires of the camera's remote trigger cable.
 To shorten the wires, the optocoupler is being used as it isolates the lightning detector from the camera itself (very safe solution).
 
 The assembled project uses direct power input via Arduino mini USB. One can use Power Bank to power it up, the simpler the power bank the better - it must 
-not have low-current shut off), the power consumption is relatively low and on small power bank it should run more than 12hrs (the power usage could be
+not have low-current shut off, the power consumption is relatively low and on small power bank it should run more than 12hrs (the power usage could be
 lower by removing LEDs, turning off OLED, bypassing/removing voltage regulator on Nano and connecting 3.3V directly to Vin etc).
-To display status OLED screen is being used - to avoid burn-in, a simple counter measures have been employed by moving randomly the displayed text by 0-2 pixels around.
+To display status, OLED screen is being used - to avoid burn-in, a simple counter measures have been employed by moving randomly the displayed text by 0-2 pixels around.
 
 Program provides support for two tact-switch buttons:
 - Test button - to test the device. It simulates lighting interruption and engages the camera trigger

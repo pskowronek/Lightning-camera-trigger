@@ -63,7 +63,7 @@ void buttonsIRQHandler();
 
 // Indoor vs outdoor button (configuration of lightning detector) - must be pressed together with Test button
 #define INOUT_DOOR_PIN      4     // The pin to check if indoor/outdoor button is pressed (4 -> D4 on nano)
-#define INOUT_DOOR_MAGIC_VALUE 67 // A magic number for testing purposes
+#define INOUT_DOOR_MAGIC_VALUE 67 // A magic number for in/out button
 #define INOUT_DOOR_EEPROM_ADDR 0  // The address in EEPROM where the state is saved 
 
 // A function to reset Arduino
