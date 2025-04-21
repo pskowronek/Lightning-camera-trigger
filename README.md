@@ -7,6 +7,8 @@ _Language versions:_\
 
 # Lightning camera trigger
 
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/piosko)
+
 This project is to automagically trigger the camera as soon as lightning occurs, as quick as possible.
 Internet says the average duration of lightning  visibility in the sky lasts for ~100-200ms, so it is enough to sense the lighting and trigger the camera.
 There are two well known ways to sense the lightning, one is to trigger the camera when light suddenly changes, the other one is to sense for specific radio waves.
