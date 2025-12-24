@@ -21,6 +21,9 @@
  * - Canon 750d
  * - Canon 350d
  * 
+ * More info on tuning SEN0290:
+ * - https://github.com/evsc/ThunderAndLightning
+ *
  * Inspired by:
  * - https://randomnerdtutorials.com/guide-for-oled-display-with-arduino/
  * - https://www.instructables.com/Fun-With-OLED-Display-and-Arduino/
