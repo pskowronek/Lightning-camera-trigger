@@ -49,7 +49,7 @@ volatile int8_t eventTriggered = 0;
 
 #define AS3935_DIST_OFF      0
 #define AS3935_DIST_ON       1
-#define AS3935_DIST          AS3935_DIST_ON   // enable/disable disruptor detection
+#define AS3935_DIST          AS3935_DIST_OFF  // enable/disable disruptor detection
 
 #define AS3935_I2C_ADDR      AS3935_ADD3      // AS3935 I2C address
 
@@ -148,6 +148,9 @@ void setup() {
   display.display();
   
   lightningDetection.manualCal(AS3935_CAPACITANCE, isOutDoor() ? AS3935_OUTDOORS : AS3935_INDOORS, AS3935_DIST);
+  lightningDetection.setNoiseFloorLvl(2);
+  lightningDetection.setWatchdogThreshold(2);
+  lightningDetection.setSpikeRejection(2);
   Serial.print(F("Setting AS3935 to "));
   Serial.println(isOutDoor() ? F("outdoor mode") : F("indoor mode"));
   //lightningDetection.printAllRegs();  // debug regs
