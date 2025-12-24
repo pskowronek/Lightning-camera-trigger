@@ -34,9 +34,8 @@
 #include <SPI.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
-#include <DFRobot_AS3935_I2C.h>   // take it from https://github.com/DFRobot/DFRobot_AS3935
-#include <Lib_I2C.h>
+#include <Adafruit_SSD1306.h>     // install it via Arduino "Adafruit_SSD1306" by Adafruit
+#include <DFRobot_AS3935_I2C.h>   // install it via Arduino "DFRobot_AS3935" by DFRobot or take it from https://github.com/DFRobot/DFRobot_AS3935 or 
 #include <EEPROM.h>
 
 // AS3935 this variable will be updated by IRQ when ligthning detected
@@ -107,9 +106,8 @@ void setup() {
   pinMode(SHUTTER_LED_PIN, OUTPUT);
 
   // I2C library setup (pullups enable, speed set to 400kHz)
-  I2c.begin();
-  I2c.pullup(true);
-  I2c.setSpeed(1);
+  Wire.begin();
+  Wire.setClock(400000);
   delay(5);
 
   randomSeed(analogRead(0));  // seed from analog pin 0
