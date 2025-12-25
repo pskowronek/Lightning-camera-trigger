@@ -21,6 +21,9 @@
  * - Canon 750d
  * - Canon 350d
  * 
+ * More info on tuning SEN0290:
+ * - https://github.com/evsc/ThunderAndLightning
+ *
  * Inspired by:
  * - https://randomnerdtutorials.com/guide-for-oled-display-with-arduino/
  * - https://www.instructables.com/Fun-With-OLED-Display-and-Arduino/
@@ -34,9 +37,8 @@
 #include <SPI.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
-#include <DFRobot_AS3935_I2C.h>   // take it from https://github.com/DFRobot/DFRobot_AS3935
-#include <Lib_I2C.h>
+#include <Adafruit_SSD1306.h>     // install it via Arduino "Adafruit_SSD1306" by Adafruit
+#include <DFRobot_AS3935_I2C.h>   // install it via Arduino "DFRobot_AS3935" by DFRobot or take it from https://github.com/DFRobot/DFRobot_AS3935 or 
 #include <EEPROM.h>
 
 // AS3935 this variable will be updated by IRQ when ligthning detected
@@ -50,7 +52,7 @@ volatile int8_t eventTriggered = 0;
 
 #define AS3935_DIST_OFF      0
 #define AS3935_DIST_ON       1
-#define AS3935_DIST          AS3935_DIST_ON   // enable/disable disruptor detection
+#define AS3935_DIST          AS3935_DIST_ON  // enable/disable disruptor detection
 
 #define AS3935_I2C_ADDR      AS3935_ADD3      // AS3935 I2C address
 
@@ -107,9 +109,8 @@ void setup() {
   pinMode(SHUTTER_LED_PIN, OUTPUT);
 
   // I2C library setup (pullups enable, speed set to 400kHz)
-  I2c.begin();
-  I2c.pullup(true);
-  I2c.setSpeed(1);
+  Wire.begin();
+  Wire.setClock(400000);
   delay(5);
 
   randomSeed(analogRead(0));  // seed from analog pin 0
@@ -150,6 +151,9 @@ void setup() {
   display.display();
   
   lightningDetection.manualCal(AS3935_CAPACITANCE, isOutDoor() ? AS3935_OUTDOORS : AS3935_INDOORS, AS3935_DIST);
+  lightningDetection.setNoiseFloorLvl(1);
+  lightningDetection.setWatchdogThreshold(1);
+  lightningDetection.setSpikeRejection(1);
   Serial.print(F("Setting AS3935 to "));
   Serial.println(isOutDoor() ? F("outdoor mode") : F("indoor mode"));
   //lightningDetection.printAllRegs();  // debug regs
@@ -246,7 +250,7 @@ void handleSensorEvent(uint8_t eventType) {
   } else if (eventType < 0) {
     // ignore
   } else {
-    unknownDetected();
+    unknownDetected(eventType);
   } 
 }
 
@@ -368,8 +372,11 @@ void noiseDetected() {
 /**
  * Display info that unknown event has been experienced.
  */
-void unknownDetected() {
-  Serial.println(F("Unknown lightning event"));
+void unknownDetected(uint8_t eventType) {
+  Serial.print(F("Unknown lightning event: "));
+  static char buf[10] = {'\0'};
+  sprintf(buf, "%d", eventType);
+  Serial.println(buf);
   clearScreenToDefault(true);
   display.println(F("Unknown event"));
   display.display();
